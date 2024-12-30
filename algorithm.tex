@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\begin{document}
+
+\begin{algorithm}
+\caption{Fire Prediction Algorithm}
+\label{alg:fire_prediction}
+\begin{algorithmic}
+\REQUIRE Sensor data row with values: \texttt{temp-ror}, \texttt{temp-fix}, \texttt{smoke}, \texttt{carbom-mono}
+\ENSURE Fire status level: 0 (Stable), 1 (Attention), 2 (Caution), 3 (Warning), 4 (Severe)
+
+\IF{$\texttt{temp-ror} \geq 30$ \OR $\texttt{temp-fix} \geq 80$ \OR $\texttt{smoke} \geq 30$ \OR $\texttt{carbom-mono} \geq 100$}
+    \RETURN 4 \COMMENT{Severe}
+\ELSIF{$\texttt{temp-ror} \geq 10$ \OR $\texttt{temp-fix} \geq 60$ \OR $\texttt{smoke} \geq 5$ \OR $\texttt{carbom-mono} \geq 40$}
+    \RETURN 3 \COMMENT{Warning}
+\ELSIF{$\texttt{temp-ror} \geq 6.5$ \OR $\texttt{temp-fix} \geq 50$ \OR $\texttt{smoke} \geq 3$ \OR $\texttt{carbom-mono} \geq 10$}
+    \RETURN 2 \COMMENT{Caution}
+\ELSIF{$\texttt{temp-ror} \geq 5$ \OR $\texttt{temp-fix} \geq 40$ \OR $\texttt{smoke} \geq 1.5$ \OR $\texttt{carbom-mono} \geq 5$}
+    \RETURN 1 \COMMENT{Attention}
+\ELSE
+    \RETURN 0 \COMMENT{Stable}
+\ENDIF
+
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
+
